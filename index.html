@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>A Little Something For You ✨</title>
+    <title>A Gentle Space For You ✨</title>
     <style>
         * {
             box-sizing: border-box;
@@ -98,6 +98,16 @@
             background-color: #4a69bd;
         }
 
+        .btn-soft {
+            background-color: #f6b93b;
+            color: #333;
+            box-shadow: 0 4px 12px rgba(246, 185, 59, 0.3);
+        }
+
+        .btn-soft:hover {
+            background-color: #eccc68;
+        }
+
         #yesBtn {
             background-color: #38ada9;
             box-shadow: 0 4px 12px rgba(56, 173, 169, 0.4);
@@ -124,9 +134,36 @@
             display: block;
         }
 
+        .comfort-card {
+            background: #f8f9fa;
+            border-left: 4px solid #6a89cc;
+            border-radius: 12px;
+            padding: 20px;
+            margin: 20px 0;
+            text-align: left;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+            font-size: 1.05rem;
+            line-height: 1.7;
+            color: #2f3542;
+        }
+
+        .reminder-box {
+            background: #eccc6822;
+            border: 1px dashed #f6b93b;
+            padding: 15px;
+            border-radius: 12px;
+            margin-top: 15px;
+            font-size: 0.95rem;
+            color: #57606f;
+            min-height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
         .answer-box {
             width: 100%;
-            height: 90px;
+            height: 100px;
             border: 2px solid #dcdde1;
             border-radius: 12px;
             padding: 12px;
@@ -139,18 +176,6 @@
 
         .answer-box:focus {
             border-color: #6a89cc;
-        }
-
-        .note-box {
-            background: #eccc6822;
-            border-left: 4px solid #f6b93b;
-            padding: 14px;
-            margin-top: 15px;
-            border-radius: 8px;
-            font-size: 0.98rem;
-            color: #4b4b4b;
-            text-align: left;
-            display: none;
         }
 
         .word-heart-container {
@@ -188,9 +213,9 @@
 </head>
 <body>
 
-    <!-- Uses your exact local song.mp3 file -->
+    <!-- Local Audio Track -->
     <audio id="bgMusic" loop preload="auto">
-        <source src="song.mp3.mp3" type="audio/mpeg">
+        <source src="song.mp3" type="audio/mpeg">
     </audio>
 
     <div class="sticker s1">🧸</div>
@@ -201,140 +226,138 @@
     <div class="sticker s6">✨</div>
 
     <div class="card" id="mainCard">
-        <!-- INTRO SCREEN TO START MUSIC -->
+        
+        <!-- INTRO SCREEN -->
         <div id="screen0" class="screen active">
             <div class="heart-icon">🎧</div>
-            <h1>A Little Surprise</h1>
-            <p>Turn your volume up a bit, then tap below to open it.</p>
+            <h1>A Little Space For You</h1>
+            <p>I built this warm spot just for you when things feel heavy. Put your sound on, then tap below when you're ready.</p>
             <button class="btn" style="margin-top: 15px; background-color: #38ada9;" onclick="startMusicAndApp()">Open With Music 🎵</button>
         </div>
 
-        <form id="memoryForm" action="https://formspree.io/f/mnppvrlp" method="POST">
+        <!-- SCREEN 1: WELCOME & PLAYFUL ENTRY -->
+        <div id="screen1" class="screen">
+            <div class="heart-icon">🩵</div>
+            <h1>Hey there...</h1>
+            <p>I know life gets overwhelming sometimes, and I wanted to leave a few gentle reminders here for you.</p>
+            <p>Are you ready to take a slow breath and step inside?</p>
+            
+            <div class="btn-container">
+                <button type="button" class="btn" id="yesBtn" onclick="nextScreen(2)">Yes, I'm ready 💖</button>
+                <button type="button" class="btn" id="noBtn" onclick="teleportAndGrow()">Not yet 🙈</button>
+            </div>
+        </div>
 
-            <!-- SCREEN 1 -->
-            <div id="screen1" class="screen">
-                <div class="heart-icon">🩵</div>
-                <h1>Hey there...</h1>
-                <p>I know things have been quiet between us, but I built this little space just for you.</p>
-                <p>I have 5 honest questions for you—take your time and type whatever is on your mind.</p>
-                
-                <div class="btn-container">
-                    <button type="button" class="btn" id="yesBtn" onclick="nextScreen(2)">Yes, let's go! 💖</button>
-                    <button type="button" class="btn" id="noBtn" onclick="teleportAndGrow()">Nope 🙈</button>
-                </div>
+        <!-- SCREEN 2: NOTE 1 -->
+        <div id="screen2" class="screen">
+            <div class="heart-icon">🕊️</div>
+            <h2>Remind Yourself...</h2>
+            
+            <div class="comfort-card">
+                Please don't blame yourself for something that is out of your hands. It is not your fault at all.
             </div>
 
-            <!-- SCREEN 2 -->
-            <div id="screen2" class="screen">
-                <h2>Question 1 of 5 💭</h2>
-                <p><b>"When we first started dating, did you actually see a future with me, or were you just having fun and let fate decide?"</b></p>
-                <textarea name="Question_1" class="answer-box" placeholder="Type your thoughts here..."></textarea>
-                
-                <button type="button" class="btn" style="margin-top: 15px;" onclick="revealPersonalNote(1)">Submit & Continue ➔</button>
-                
-                <div id="note1" class="note-box">
-                    💭 <i>My note: From the moment we started talking, I wasn't just passing time. I saw a real future with you.</i>
-                    <br><br>
-                    <button type="button" class="btn" onclick="nextScreen(3)">Next Question ➔</button>
-                </div>
+            <button type="button" class="btn" onclick="nextScreen(3)">Read Next ➔</button>
+        </div>
+
+        <!-- SCREEN 3: NOTE 2 -->
+        <div id="screen3" class="screen">
+            <div class="heart-icon">🌱</div>
+            <h2>Hold On To This...</h2>
+            
+            <div class="comfort-card">
+                The signs you thought you saw aren't signs—it's just something you couldn't stop, no matter how much love you had to give.
             </div>
 
-            <!-- SCREEN 3 -->
-            <div id="screen3" class="screen">
-                <h2>Question 2 of 5 🙈</h2>
-                <p><b>"What's a question you've never asked me because you're scared of the answer?"</b></p>
-                <textarea name="Question_2" class="answer-box" placeholder="Type your thoughts here..."></textarea>
-                
-                <button type="button" class="btn" style="margin-top: 15px;" onclick="revealPersonalNote(2)">Submit & Continue ➔</button>
-                
-                <div id="note2" class="note-box">
-                    🕊️ <i>My note: Whatever question is in your mind, know that you can ask me anything without any judgment.</i>
-                    <br><br>
-                    <button type="button" class="btn" onclick="nextScreen(4)">Next Question ➔</button>
-                </div>
+            <button type="button" class="btn" onclick="nextScreen(4)">Read Next ➔</button>
+        </div>
+
+        <!-- SCREEN 4: NOTE 3 (TATAY REMINDER) -->
+        <div id="screen4" class="screen">
+            <div class="heart-icon">🤍</div>
+            <h2>Remember Tatay...</h2>
+            
+            <div class="comfort-card">
+                Tatay wouldn't like seeing you carry this guilt either. You already gave all your love and care to him. <b>Pagalitan ka ng Tatay, sige ka.</b>
             </div>
 
-            <!-- SCREEN 4 -->
-            <div id="screen4" class="screen">
-                <h2>Question 3 of 5 😊</h2>
-                <p><b>"What's something I do that drives you crazy, but you'd actually miss if I stopped?"</b></p>
-                <textarea name="Question_3" class="answer-box" placeholder="Type your thoughts here..."></textarea>
-                
-                <button type="button" class="btn" style="margin-top: 15px;" onclick="revealPersonalNote(3)">Submit & Continue ➔</button>
-                
-                <div id="note3" class="note-box">
-                    ✨ <i>My note: Even all your tiny habits and reactions are things I still cherish every day.</i>
-                    <br><br>
-                    <button type="button" class="btn" onclick="nextScreen(5)">Next Question ➔</button>
-                </div>
+            <button type="button" class="btn" onclick="nextScreen(5)">Read Next ➔</button>
+        </div>
+
+        <!-- SCREEN 5: NOTE 4 -->
+        <div id="screen5" class="screen">
+            <div class="heart-icon">🕯️</div>
+            <h2>Let It Go Slowly...</h2>
+            
+            <div class="comfort-card">
+                Please don't carry a burden that isn't yours to bear in the first place.
             </div>
 
-            <!-- SCREEN 5 -->
-            <div id="screen5" class="screen">
-                <h2>Question 4 of 5 🛡️</h2>
-                <p><b>"If your best friend said you were settling with me, would you defend me or wonder if they were right?"</b></p>
-                <textarea name="Question_4" class="answer-box" placeholder="Type your thoughts here..."></textarea>
-                
-                <button type="button" class="btn" style="margin-top: 15px;" onclick="revealPersonalNote(4)">Submit & Continue ➔</button>
-                
-                <div id="note4" class="note-box">
-                    🩵 <i>My note: You were never settling to me. I always wanted to make sure you felt proud and valued by my side.</i>
-                    <br><br>
-                    <button type="button" class="btn" onclick="nextScreen(6)">Next Question ➔</button>
-                </div>
+            <button type="button" class="btn" onclick="nextScreen(6)">Continue ➔</button>
+        </div>
+
+        <!-- SCREEN 6: INTERACTIVE COMFORT TOOL & OPTIONAL VENT BOX -->
+        <div id="screen6" class="screen">
+            <div class="heart-icon">✨</div>
+            <h2>A Gentle Little Corner</h2>
+            <p>Whenever you feel heavy, tap below for a soft reminder:</p>
+
+            <button type="button" class="btn btn-soft" onclick="getRandomReminder()">Tap For A Gentle Reminder 🌸</button>
+            
+            <div id="reminderOutput" class="reminder-box">
+                <i>Tap the button above whenever you need a warm thought.</i>
             </div>
 
-            <!-- SCREEN 6 -->
-            <div id="screen6" class="screen">
-                <h2>Question 5 of 5 💌</h2>
-                <p><b>"What's the one thing you think you should never have asked me for?"</b></p>
-                <textarea name="Question_5" class="answer-box" placeholder="Type your thoughts here..."></textarea>
-                
-                <button type="button" class="btn" style="margin-top: 15px;" onclick="revealPersonalNote(5)">Submit & Continue ➔</button>
-                
-                <div id="note5" class="note-box">
-                    🌸 <i>My note: You never asked for too much. Everything you asked for was valid, and I'm sorry for any moments I fell short.</i>
-                    <br><br>
-                    <button type="submit" class="btn" onclick="triggerFinalScreen(event)">See My Final Message ➔</button>
-                </div>
-            </div>
+            <hr style="border: 0; border-top: 1px solid #eee; margin: 25px 0;">
 
-        </form>
+            <form id="memoryForm" action="https://formspree.io/f/mnppvrlp" method="POST">
+                <p><b>If your heart feels full and you just want to vent, type whatever is on your mind (completely optional):</b></p>
+                <textarea name="Vent_Message" class="answer-box" placeholder="Write whatever you feel, or leave it blank..."></textarea>
+                
+                <button type="submit" class="btn" style="margin-top: 15px;" onclick="triggerFinalScreen(event)">See My Final Message ➔</button>
+            </form>
+        </div>
 
-        <!-- SCREEN 7 -->
+        <!-- SCREEN 7: FINAL HEART SCREEN -->
         <div id="screen7" class="screen">
-            <h2>From My Heart</h2>
-            <p>Thank you for taking the time to answer these and share your thoughts with me.</p>
+            <h2>From My Heart To Yours</h2>
+            <p>Thank you for letting me share these thoughts with you today.</p>
             
             <div id="wordHeart" class="word-heart-container"></div>
 
-            <p style="font-size: 0.95rem; margin-top: 10px;">No matter where things go, I’m always rooting for your happiness. Whenever you feel like talking, my door is always open. 🩵</p>
+            <p style="font-size: 0.95rem; margin-top: 10px;">No matter where life takes us, I’m always rooting for your peace and happiness. Whenever you need someone to talk to, my door is always open. 🩵</p>
             
             <button class="btn" style="margin-top: 10px;" onclick="location.reload()">Replay From Start 🔄</button>
         </div>
+
     </div>
 
     <script>
         let clickCount = 0;
+
+        const reminders = [
+            "You are doing the absolute best you can, and that is enough.",
+            "It's okay to feel sad, but don't forget to be gentle with yourself today.",
+            "You don't have to carry the weight of the world on your shoulders.",
+            "Your kindness and love were felt, even in moments you couldn't control.",
+            "Take a deep breath in... and let out all that tension.",
+            "You are allowed to heal at your own pace."
+        ];
 
         function startMusicAndApp() {
             const music = document.getElementById('bgMusic');
             if (music) {
                 music.volume = 0.5;
                 music.play().then(() => {
-                    console.log("Music started!");
-                }).catch(e => {
-                    console.log("Audio play failed:", e);
-                });
+                    console.log("Music playing!");
+                }).catch(e => console.log('Audio playback blocked:', e));
             }
             nextScreen(1);
         }
 
         function teleportAndGrow() {
             const music = document.getElementById('bgMusic');
-            if (music && music.paused) { 
-                music.play().catch(e => {}); 
-            }
+            if (music && music.paused) { music.play().catch(e => {}); }
 
             const noBtn = document.getElementById('noBtn');
             const yesBtn = document.getElementById('yesBtn');
@@ -370,8 +393,9 @@
             document.getElementById('screen' + screenNumber).classList.add('active');
         }
 
-        function revealPersonalNote(num) {
-            document.getElementById('note' + num).style.display = 'block';
+        function getRandomReminder() {
+            const randomMsg = reminders[Math.floor(Math.random() * reminders.length)];
+            document.getElementById('reminderOutput').innerHTML = `<b>"${randomMsg}"</b>`;
         }
 
         function triggerFinalScreen(event) {
@@ -380,6 +404,7 @@
             const form = document.getElementById('memoryForm');
             const formData = new FormData(form);
 
+            // Only sends if she typed something
             fetch(form.action, {
                 method: 'POST',
                 body: formData,
