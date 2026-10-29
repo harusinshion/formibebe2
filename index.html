@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>A Gentle Space For You ✨</title>
+    <title>A Little Note For You ✨</title>
     <style>
         * {
             box-sizing: border-box;
@@ -230,20 +230,20 @@
         <!-- INTRO SCREEN -->
         <div id="screen0" class="screen active">
             <div class="heart-icon">🎧</div>
-            <h1>A Little Space For You</h1>
-            <p>I built this warm spot just for you when things feel heavy. Put your sound on, then tap below when you're ready.</p>
+            <h1>Hi there</h1>
+            <p>I made this little safe space just for you. Turn up your volume a bit, and tap below when you're ready.</p>
             <button class="btn" style="margin-top: 15px; background-color: #38ada9;" onclick="startMusicAndApp()">Open With Music 🎵</button>
         </div>
 
         <!-- SCREEN 1: WELCOME & PLAYFUL ENTRY -->
         <div id="screen1" class="screen">
             <div class="heart-icon">🩵</div>
-            <h1>Hey there...</h1>
-            <p>I know life gets overwhelming sometimes, and I wanted to leave a few gentle reminders here for you.</p>
-            <p>Are you ready to take a slow breath and step inside?</p>
+            <h1>Hello...</h1>
+            <p>I know things have been heavy lately. I just wanted to leave a few gentle reminders here for you.</p>
+            <p>Take your time. Ready to look?</p>
             
             <div class="btn-container">
-                <button type="button" class="btn" id="yesBtn" onclick="nextScreen(2)">Yes, I'm ready 💖</button>
+                <button type="button" class="btn" id="yesBtn" onclick="nextScreen(2)">Yes, let's go 💖</button>
                 <button type="button" class="btn" id="noBtn" onclick="teleportAndGrow()">Not yet 🙈</button>
             </div>
         </div>
@@ -251,46 +251,46 @@
         <!-- SCREEN 2: NOTE 1 -->
         <div id="screen2" class="screen">
             <div class="heart-icon">🕊️</div>
-            <h2>Remind Yourself...</h2>
+            <h2>Please remember...</h2>
             
             <div class="comfort-card">
-                Please don't blame yourself for something that is out of your hands. It is not your fault at all.
+                Please don't blame yourself for something that was out of your hands. It is not your fault at all. You did your best.
             </div>
 
-            <button type="button" class="btn" onclick="nextScreen(3)">Read Next ➔</button>
+            <button type="button" class="btn" onclick="nextScreen(3)">Next ➔</button>
         </div>
 
         <!-- SCREEN 3: NOTE 2 -->
         <div id="screen3" class="screen">
             <div class="heart-icon">🌱</div>
-            <h2>Hold On To This...</h2>
+            <h2>And also...</h2>
             
             <div class="comfort-card">
-                The signs you thought you saw aren't signs—it's just something you couldn't stop, no matter how much love you had to give.
+                The signs you thought you saw aren't signs—it's just something you couldn't stop, no matter how much you wanted to.
             </div>
 
-            <button type="button" class="btn" onclick="nextScreen(4)">Read Next ➔</button>
+            <button type="button" class="btn" onclick="nextScreen(4)">Next ➔</button>
         </div>
 
         <!-- SCREEN 4: NOTE 3 (TATAY REMINDER) -->
         <div id="screen4" class="screen">
             <div class="heart-icon">🤍</div>
-            <h2>Remember Tatay...</h2>
+            <h2>Think about Tatay...</h2>
             
             <div class="comfort-card">
-                Tatay wouldn't like seeing you carry this guilt either. You already gave all your love and care to him. <b>Pagalitan ka ng Tatay, sige ka.</b>
+                Tatay wouldn't like it either. You already gave all your love and care to him. <b>Pagalitan ka ng Tatay, sige ka.</b>
             </div>
 
-            <button type="button" class="btn" onclick="nextScreen(5)">Read Next ➔</button>
+            <button type="button" class="btn" onclick="nextScreen(5)">Next ➔</button>
         </div>
 
         <!-- SCREEN 5: NOTE 4 -->
         <div id="screen5" class="screen">
             <div class="heart-icon">🕯️</div>
-            <h2>Let It Go Slowly...</h2>
+            <h2>One last thing...</h2>
             
             <div class="comfort-card">
-                Please don't carry a burden that isn't yours to bear in the first place.
+                Please don't carry a burden that isn't yours to bear in the first place. You don't have to carry it all alone.
             </div>
 
             <button type="button" class="btn" onclick="nextScreen(6)">Continue ➔</button>
@@ -299,35 +299,35 @@
         <!-- SCREEN 6: INTERACTIVE COMFORT TOOL & OPTIONAL VENT BOX -->
         <div id="screen6" class="screen">
             <div class="heart-icon">✨</div>
-            <h2>A Gentle Little Corner</h2>
-            <p>Whenever you feel heavy, tap below for a soft reminder:</p>
+            <h2>A Little Corner For You</h2>
+            <p>If you need a warm thought right now, tap the button below:</p>
 
-            <button type="button" class="btn btn-soft" onclick="getRandomReminder()">Tap For A Gentle Reminder 🌸</button>
+            <button type="button" class="btn btn-soft" onclick="getRandomReminder()">Get A Gentle Reminder 🌸</button>
             
             <div id="reminderOutput" class="reminder-box">
-                <i>Tap the button above whenever you need a warm thought.</i>
+                <i>Tap the button above whenever you need a nice thought.</i>
             </div>
 
             <hr style="border: 0; border-top: 1px solid #eee; margin: 25px 0;">
 
             <form id="memoryForm" action="https://formspree.io/f/mnppvrlp" method="POST">
-                <p><b>If your heart feels full and you just want to vent, type whatever is on your mind (completely optional):</b></p>
-                <textarea name="Vent_Message" class="answer-box" placeholder="Write whatever you feel, or leave it blank..."></textarea>
+                <p><b>If you want to vent or type out what's on your mind, you can write it here (totally optional):</b></p>
+                <textarea name="Vent_Message" class="answer-box" placeholder="Type here if you want, or leave it blank..." style="height: 100px;"></textarea>
                 
-                <button type="submit" class="btn" style="margin-top: 15px;" onclick="triggerFinalScreen(event)">See My Final Message ➔</button>
+                <button type="submit" class="btn" style="margin-top: 15px;" onclick="triggerFinalScreen(event)">Finish ➔</button>
             </form>
         </div>
 
         <!-- SCREEN 7: FINAL HEART SCREEN -->
         <div id="screen7" class="screen">
-            <h2>From My Heart To Yours</h2>
-            <p>Thank you for letting me share these thoughts with you today.</p>
+            <h2>Take Care Always</h2>
+            <p>Thank you for taking a moment to look through this.</p>
             
             <div id="wordHeart" class="word-heart-container"></div>
 
-            <p style="font-size: 0.95rem; margin-top: 10px;">No matter where life takes us, I’m always rooting for your peace and happiness. Whenever you need someone to talk to, my door is always open. 🩵</p>
+            <p style="font-size: 0.95rem; margin-top: 10px;">I'm always rooting for your peace and happiness. Whenever you need someone to talk to, my door is open. 🩵</p>
             
-            <button class="btn" style="margin-top: 10px;" onclick="location.reload()">Replay From Start 🔄</button>
+            <button class="btn" style="margin-top: 10px;" onclick="location.reload()">Start Over 🔄</button>
         </div>
 
     </div>
@@ -336,12 +336,12 @@
         let clickCount = 0;
 
         const reminders = [
-            "You are doing the absolute best you can, and that is enough.",
-            "It's okay to feel sad, but don't forget to be gentle with yourself today.",
-            "You don't have to carry the weight of the world on your shoulders.",
-            "Your kindness and love were felt, even in moments you couldn't control.",
-            "Take a deep breath in... and let out all that tension.",
-            "You are allowed to heal at your own pace."
+            "You are doing just fine, and I'm proud of you.",
+            "Take a deep breath and let go of the heavy thoughts.",
+            "It's okay to rest. You don't have to fix everything right now.",
+            "Your heart is good, and you cared so much.",
+            "Take it one step and one day at a time.",
+            "You are never alone."
         ];
 
         function startMusicAndApp() {
@@ -404,7 +404,6 @@
             const form = document.getElementById('memoryForm');
             const formData = new FormData(form);
 
-            // Only sends if she typed something
             fetch(form.action, {
                 method: 'POST',
                 body: formData,
